@@ -1,0 +1,26 @@
+Config { font = "-*-Monospace-*-Normal-*-7-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "white"
+       , position = Bottom
+       , commands = [ Run Weather "LBSF" ["-t", "<tempC>C"] 36000 --<station>: 
+                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run MultiCpu ["-t","Cpu: <total0> <total1>","-L","10","-H","50","-h","#FF0000","-l","#00FF00","-n","#00FF00","-w","3"] 10
+                    , Run Network "wlp1s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Network "enp2s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Date "%a %_d-%m-%Y %H:%M:%S" "date" 1
+                    , Run BatteryP ["BAT0"]
+                     ["-t", "<left>% <acstatus>"
+                     , "-L", "10", "-H", "80"
+                     , "-l", "red", "-h", "green"
+                     , "--", "-O", "Charging", "-o", "Battery: <left>%"
+                     ] 10
+                    , Run StdinReader
+                    , Run CommandReader "/home/alex/.xmonad/ledmon/ledmon" "LED"
+                    , Run CommandReader "/usr/bin/getLang" "LANG"
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %LED% %LANG% | %battery% | %date% | %LBSF%"
+       }

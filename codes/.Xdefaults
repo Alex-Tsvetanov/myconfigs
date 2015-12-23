@@ -1,0 +1,44 @@
+urxvt.termName:                   rxvt-256color
+
+urxvt.depth:                      32
+urxvt.background:                 rgba:0000/0000/0000/0000
+urxvt.foreground:                 rgb:ffff/ffff/ffff/ffff
+urxvt.font:                       xft:monospace:size=12
+urxvt.keysym.Home:                \033[1~
+urxvt.keysym.End:                 \033[4~
+urxvt.cursorBlink:                true
+urxvt.scrollBar_right:            true
+urxvt.transparent:                true
+urxvt.shading:                    90
+urxvt.iso14755:                   False
+#urxvt.perl-ext-common:            tabbed,tabbedex
+#urxvt.perl-ext-common:            tabbed
+urxvt.perl-ext-common:            default,macher,tabbedex,autocomplete-ALL-the-things
+urxvt.keysym.Shift-Control-C:     perl:clipboard:copy
+urxvt.keysym.Shift-Control-V:     perl:clipboard:paste
+#urxvt.keysym.Control-Shift-Left:  perl:tabbed:move_tab_left
+#urxvt.keysym.Control-Shift-Right: perl:tabbed:move_tab_right
+#urxvt.keysym.Control-Shift-R:     perl:tabbed:rename_tab
+urxvt.keysym.Control-Shift-T:     perl:tabbedex:new_tab
+urxvt.keysym.Control-Tab:         perl:tabbedex:next_tab
+urxvt.keysym.Control-Shift-Tab:   perl:tabbedex:prev_tab
+urxvt.keysym.Control-Shift-Left:  perl:tabbedex:prev_tab
+urxvt.keysym.Control-Shift-Right: perl:tabbedex:next_tab
+urxvt.keysym.Control-Shift-R:     perl:tabbedex:rename_tab
+urxvt.highlightTextColor:         rgb:0000/0000/0000/0000
+urxvt.highlightColor:             rgb:ffff/ffff/ffff/ffff
+urxvt.cursorColor:                rgba:ffff/ffff/ffff/ffff
+urxvt.cursorColor2:               rgba:ffff/ffff/ffff/ffff
+urxvt.keysym.M-slash:             perl:aAtt:complete
+
+urxvt.url-launcher:               firefox
+urxvt.keysym.C-Delete:            matcher:last
+urxvt.keysym.M-Delete:            matcher:list
+urxvt.matcher.button:             1
+urxvt.matcher.pattern.1:          \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+urxvt.matcher.pattern.2:          \\B(/\\S+?):(\\d+)(?=:|$)
+urxvt.matcher.launcher.2:         gvim +$2 $1
+
+URxvt.keysym.M-slash:  perl:aAtt:complete
+
+#urxvt*font:     xft:Bitstream Vera Sans Mono for Powerline:pixelsize=12
