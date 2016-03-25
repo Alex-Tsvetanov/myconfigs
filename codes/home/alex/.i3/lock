@@ -1,0 +1,4 @@
+#/bin/bash
+i3lock -i /home/alex/.i3/screen_locked.png; 
+#i3lock -c 000000; 
+#i3lock -i /home/alex/Backgorunds/blue_hole.png;
