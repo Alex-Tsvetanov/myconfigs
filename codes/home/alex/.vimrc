@@ -1,5 +1,7 @@
-"call pathogen#infect('/usr/local/bundle/{}')
-"call pathogen#helptags()
+call pathogen#infect()
+call pathogen#helptags()
+
+set autochdir
 
 set runtimepath+=/usr/local/bundle/badwolf
 set runtimepath+=/usr/local/bundle/nerdtree
@@ -87,20 +89,20 @@ nmap <C-H> <C-W>h
 
 set langmap=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕРТЪУИОПШЩАСДФГХЙКЛЗѝЦЖБНМ;`qwertyuiop[]asdfghjklzxcvbnm~QWERTYUIOP{}ASDFGHJKLZXCVBNM
 
-let g:ycm_global_ycm_extra_conf = '/etc/vim/ycm_extra_conf.py'
-set completeopt-=preview
+"let g:ycm_global_ycm_extra_conf = '/etc/vim/ycm_extra_conf.py'
+"set completeopt-=preview
+"----------------------------------------------
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-"let g:syntastic_c_compiler_options = '-std=gnu11'
-"let g:syntastic_cpp_compiler_options = '-std=gnu++1z'
-"
-""set conceallevel=2
-""set concealcursor=vin
-"let g:clang_snippets=1
-"let g:clang_conceal_snippets=1
-"let g:clang_snippets_engine='clang_complete'
-"let g:clang_user_options = '-std=gnu++1z'
-"
-"let g:SuperTabDefaultCompletionType='<c-x><c-u><c-p>'
+highlight SyntasticErrorLine guibg=#2f0000
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_c_compiler_options = '-std=gnu11 -Wall'
+let g:syntastic_cpp_compiler_options = '-std=gnu++1z -Wall'
 
 if &term =~? 'xterm'
 	set t_ut=
@@ -128,42 +130,47 @@ map <BS> :tabprev<CR>
 map <C-h> :nohls<CR> 
 setfiletype cpp
 hi Normal ctermbg=none
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = '▶'
-let g:airline#extensions#tabline#left_alt_sep = '»'
-let g:airline#extensions#tabline#right_sep = '◀'
-let g:airline#extensions#tabline#right_alt_sep = '«'
 
-if !exists('g:airline_symbols')
-let g:airline_symbols = {}
+"let w:airline_disabled=1
+if ! has("gui_running")
+    let g:loaded_airline = 1
 endif
-
-" unicode symbols
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" Statusbar
-let g:airline_detect_modified=1
-let g:airline_mode_map = {
-	\ '__' : '-',
-	\ 'n'  : 'N',
-	\ 'i'  : 'I',
-	\ 'R'  : 'R',
-	\ 'c'  : 'C',
-	\ 'v'  : 'V',
-	\ 'V'  : 'V',
-	\ '' : 'V',
-	\ 's'  : 'S',
-	\ 'S'  : 'S',
-	\ '' : 'S',
-	\ }
-" theme and etc.
-let g:airline_theme             = 'badwolf'
-let g:airline_enable_branch     = 1
-let g:airline_enable_syntastic  = 1
-
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#left_sep = '▶'
+"let g:airline#extensions#tabline#left_alt_sep = '»'
+"let g:airline#extensions#tabline#right_sep = '◀'
+"let g:airline#extensions#tabline#right_alt_sep = '«'
+"
+"if !exists('g:airline_symbols')
+"let g:airline_symbols = {}
+"endif
+"
+"" unicode symbols
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
+"
+"" Statusbar
+"let g:airline_detect_modified=1
+"let g:airline_mode_map = {
+"	\ '__' : '-',
+"	\ 'n'  : 'N',
+"	\ 'i'  : 'I',
+"	\ 'R'  : 'R',
+"	\ 'c'  : 'C',
+"	\ 'v'  : 'V',
+"	\ 'V'  : 'V',
+"	\ '' : 'V',
+"	\ 's'  : 'S',
+"	\ 'S'  : 'S',
+"	\ '' : 'S',
+"	\ }
+"" theme and etc.
+"let g:airline_theme             = 'badwolf'
+"let g:airline_enable_branch     = 1
+"let g:airline_enable_syntastic  = 1
+"
 highlight Comment  cterm=bold ctermbg=NONE
 highlight Constant ctermbg=NONE 
 highlight Normal ctermbg=NONE 
@@ -173,3 +180,10 @@ highlight Cursor ctermbg=NONE
 
 " color jellybeans
 " let g:jellybeans_background_color_256='NONE'
+let g:SuperTabDefaultCompletionType = "<c-Space>"
+let g:SuperTabContextDefaultCompletionType = "<c-Space>"
+let g:clang_complete_auto = 1
+let g:clang_auto_select = 1
+let g:clang_hl_errors = 1
+let g:clang_snippets = 1
+
