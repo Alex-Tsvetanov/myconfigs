@@ -1,0 +1,23 @@
+#/bin/bash
+while true ; do
+LG=$(xset -q|grep LED| awk '{ print $10 }')
+if [ $LG == "00001005" ]
+then
+	echo "BG";
+fi
+if [ $LG == "00001004" ]
+then
+	echo "BG";
+fi
+
+if [ $LG == "00000001" ]
+then
+	echo "EN";
+fi
+if [ $LG == "00000000" ]
+then
+	echo "EN";
+fi
+sleep 1;
+done
+

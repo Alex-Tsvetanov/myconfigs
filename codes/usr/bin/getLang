@@ -1,23 +1,21 @@
-#/bin/bash
-while true ; do
-LG=$(xset -q|grep LED| awk '{ print $10 }')
-if [ $LG == "00001005" ]
-then
-	echo "BG";
-fi
-if [ $LG == "00001004" ]
-then
-	echo "BG";
-fi
-
-if [ $LG == "00000001" ]
-then
-	echo "EN";
-fi
-if [ $LG == "00000000" ]
-then
-	echo "EN";
-fi
-sleep 1;
+#!/bin/bash
+while true ;
+do
+	LANG="`xkblayout-state print "%s"`";
+	if [[ "$LANG" = "bg" ]];
+	then
+		GREEN='\033[0;32m'
+		NC='\033[0m'
+#printf "${GREEN}BG${NC}\n"
+		printf "BG\n"
+#	fi
+#	if [[ "$LANG" = "en" ]];
+#	then
+	else
+		BLUE='\033[0;34m'
+		NC='\033[0m'
+#printf "${BLUE}EN${NC}\n"
+		printf "EN\n"
+	fi
+	sleep 1s;
 done
-

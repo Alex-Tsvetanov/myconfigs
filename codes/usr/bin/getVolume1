@@ -1,0 +1,14 @@
+#/bin/bash
+
+while true ;
+do
+	pamixer --get-volume > $HOME/vol;
+	if [[ "`pamixer --get-mute`" = "true" ]];
+	then 
+		add="♫";
+	else
+		add="♪";
+	fi
+	echo "`cat $HOME/vol`% $add";
+	sleep 1;
+done

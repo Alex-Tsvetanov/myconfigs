@@ -1,14 +1,7 @@
-#/bin/bash
-
-while true ;
-do
-	pamixer --get-volume > $HOME/vol;
-	if [[ "`pamixer --get-mute`" = "true" ]];
-	then 
-		add="♫";
-	else
-		add="♪";
-	fi
-	echo "`cat $HOME/vol`% $add";
-	sleep 1;
+#!/bin/bash
+while true ; 
+do 
+	vol | grep Volume > /tmp/volume;
+	cat /tmp/volume; 
+	sleep 1s; 
 done
