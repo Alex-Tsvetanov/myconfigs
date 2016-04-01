@@ -1,7 +1,7 @@
 Config { font = "-*-Monospace-*-Normal-*-7-*-*-*-*-*-*-*"
        , bgColor = "black"
        , fgColor = "white"
-       , position = Bottom
+       , position = Top
        , commands = [ Run Weather "LBSF" ["-t", "<tempC>C"] 36000 --<station>: 
                     , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
                     , Run MultiCpu ["-t","Cpu: <total0> <total1>","-L","10","-H","50","-h","#FF0000","-l","#00FF00","-n","#00FF00","-w","3"] 10
@@ -19,9 +19,8 @@ Config { font = "-*-Monospace-*-Normal-*-7-*-*-*-*-*-*-*"
                     , Run StdinReader
                     , Run CommandReader "/home/alex/.xmonad/ledmon/ledmon" "LED"
                     , Run CommandReader "/usr/bin/getLang" "LANG"
-                    , Run CommandReader "/usr/bin/getVolume" "VOL"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %LED% %VOL% %LANG%"
+       , template = "%StdinReader% }{ %LED% %LANG% %multicpu% | %battery% | %memory% * %swap% | %wlp1s0% * %enp2s0%   %date% | %LBSF%"
        }

@@ -19,9 +19,8 @@ Config { font = "-*-Monospace-*-Normal-*-7-*-*-*-*-*-*-*"
                     , Run StdinReader
                     , Run CommandReader "/home/alex/.xmonad/ledmon/ledmon" "LED"
                     , Run CommandReader "/usr/bin/getLang" "LANG"
-                    , Run CommandReader "/usr/bin/getVolume" "VOL"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %LED% %VOL% %LANG%"
+       , template = "%StdinReader% }{ %LED% %LANG%"
        }
