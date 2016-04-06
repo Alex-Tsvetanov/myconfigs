@@ -1,7 +1,7 @@
 --import statements
 import XMonad
 import XMonad.Layout.SimpleFloat
-import XMonad.Layout.NoBorders
+--import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.Run(spawnPipe)
@@ -13,6 +13,11 @@ import XMonad.Hooks.UrgencyHook
 import XMonad.Util.NamedWindows
 import XMonad.Util.Run
 import XMonad.Hooks.SetWMName
+import XMonad.Layout.Fullscreen
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Spiral
+import XMonad.Layout.Tabbed
+import XMonad.Layout.ThreeColumns
 
 import Data.Bits ((.|.))
 
@@ -31,17 +36,24 @@ instance UrgencyHook LibNotifyUrgencyHook where
         Just idx <- fmap (W.findTag w) $ gets windowset
 	safeSpawn "notify-send" [show name, "workspace " ++ idx]
 
--- Define default layouts used on most workspaces
-defaultLayouts = tiled ||| Mirror tiled ||| simpleFloat ||| Full
-    where
-        -- default tiling algorithm partitions the screen into two panes
-        tiled   = Tall nmaster delta ratio
-        -- The default number of windows in the master pane
-        nmaster = 1
-        -- Default proportion of screen occupied by master pane
-        ratio   = 1/2
-        -- Percent of screen to increment by when resizing panes
-        delta   = 3/100
+-- Define default layouts used on most workspace
+defaultLayouts = avoidStruts (
+	ThreeColMid 1 (3/100) (1/2) |||
+	Tall 1 (3/100) (1/2) |||
+	Mirror (Tall 1 (3/100) (1/2)) |||
+	Full |||
+	spiral (6/7)) |||
+	noBorders (fullscreenFull Full)
+--defaultLayouts = tiled ||| Mirror tiled ||| simpleFloat ||| Full
+ --   where
+  --      -- default tiling algorithm partitions the screen into two panes
+   --     tiled   = Tall nmaster delta ratio
+    --    -- The default number of windows in the master pane
+     --   nmaster = 1
+      --  -- Default proportion of screen occupied by master pane
+       -- ratio   = 1/2
+        ---- Percent of screen to increment by when resizing panes
+        --delta   = 3/100
  
 -- Define the names of all workspaces
 myWorkspaces = ["1","2","5","14","42","132","429","1430","4862","16796"]
@@ -89,11 +101,8 @@ startup= do
 --XMonad Config
 xmonadConfig = ewmh $ pagerHints $ withUrgencyHook LibNotifyUrgencyHook $ defaultConfig
 	{
-		manageHook = composeAll [
-		    manageDocks,
-		    isFullscreen --> doFullFloat,
-		    manageHook defaultConfig
-		  ],
+		manageHook = composeAll
+		[isFullscreen --> (doF W.focusDown <+> doFullFloat)],
 		modMask=mod4Mask,
 		workspaces = myWorkspaces,
 		terminal = myTerminal,

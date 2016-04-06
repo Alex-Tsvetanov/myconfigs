@@ -43,6 +43,7 @@ setlocal makeprg=make
 else
 autocmd FileType c          setlocal makeprg=gcc\ '%'\ -o\ '%:r'.exe\ -std=gnu11\ -Wall
 autocmd FileType cs         setlocal makeprg=mcs\ '%'
+autocmd FileType html       setlocal makeprg=firefox\ file://$PWD/'%'
 autocmd FileType cpp        setlocal makeprg=g++\ '%'\ -o\ '%:r'.exe\ -std=c++14\ -Wall\ -lglut\ -lGLU\ -lGL\ -lXmu\ -lXext\ -lXi\ -lX11\ -lm\ -lgmpxx\ -lgmp\ -fopenmp
 autocmd FileType haskell    setlocal makeprg=ghc\ --make\ '%' shellpipe=2> expandtab
 autocmd FileType cabal      setlocal expandtab
@@ -186,4 +187,5 @@ let g:clang_complete_auto = 1
 let g:clang_auto_select = 1
 let g:clang_hl_errors = 1
 let g:clang_snippets = 1
+let g:acp_behaviorHtmlOmniLength=100000000
 
