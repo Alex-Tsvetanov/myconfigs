@@ -17,7 +17,7 @@
 #exec volnoti -t 1
 #exec xscreensaver -no-splash &
 exec taffybar &
-exec audacious -e ~/GIT/have_repo/My-Music/music/bulgarian/ -H &
+exec audacious -e ~/GIT/have_repo/My-Music/music/shuffle/ -H &
 exec compton -i 0.5 --mark-wmwin-focused --mark-ovredir-focused
 bindsym $mod+Control++ exec compton-trans +10
 bindsym $mod+Control+- exec compton-trans -10
@@ -115,28 +115,28 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 0
-bindsym $mod+2 workspace 1
-bindsym $mod+3 workspace 2
-bindsym $mod+4 workspace 3
-bindsym $mod+5 workspace 4
-bindsym $mod+6 workspace 5
-bindsym $mod+7 workspace 6
-bindsym $mod+8 workspace 7
-bindsym $mod+9 workspace 8
-bindsym $mod+0 workspace 9
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 0
-bindsym $mod+Shift+2 move container to workspace 1
-bindsym $mod+Shift+3 move container to workspace 2
-bindsym $mod+Shift+4 move container to workspace 3
-bindsym $mod+Shift+5 move container to workspace 4
-bindsym $mod+Shift+6 move container to workspace 5
-bindsym $mod+Shift+7 move container to workspace 6
-bindsym $mod+Shift+8 move container to workspace 7
-bindsym $mod+Shift+9 move container to workspace 8
-bindsym $mod+Shift+0 move container to workspace 9
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+c reload
@@ -182,7 +182,7 @@ bindsym XF86AudioRaiseVolume exec pamixer --allow-boost -i 5
 bindsym XF86AudioLowerVolume exec pamixer -d 5
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-bindsym $mod+Control+Left exec playerctl previous
-bindsym $mod+Control+Right exec playerctl next
-bindsym $mod+Control+s exec playerctl stop
-bindsym $mod+Control+a exec playerctl play-pause
+bindsym $mod+Control+Left exec playerctl -p audacious previous
+bindsym $mod+Control+Right exec playerctl -p audacious next
+bindsym $mod+Control+s exec playerctl -p audacious stop
+bindsym $mod+Control+a exec playerctl -p audacious play-pause

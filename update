@@ -1,4 +1,5 @@
 #!/bin/bash
+git pull
 echo "# Myconfigs" > README.md
 for i in {".config/taffybar/taffybar.hs",".i3",".vimrc",".Xauthority",".Xdefaults",".xmobarrc",".Xmodmap",".xmonad",".Xresources",".zshrc"};
 do 

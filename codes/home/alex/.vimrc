@@ -4,11 +4,11 @@ call pathogen#helptags()
 set autochdir
 
 set runtimepath+=/usr/local/bundle/badwolf
-set runtimepath+=/usr/local/bundle/nerdtree
+"set runtimepath+=/usr/local/bundle/nerdtree
 set runtimepath+=/usr/local/bundle/detectindent
 "set runtimepath+=/usr/local/bundle/jshint2.vim
 
-set runtimepath+=/usr/local/bundle/YouCompleteMe
+"set runtimepath+=/usr/local/bundle/YouCompleteMe
 "set runtimepath+=/usr/local/bundle/AutoComplPop
 "set runtimepath+=/usr/local/bundle/clang_complete
 "set runtimepath+=/usr/local/bundle/supertab
@@ -43,13 +43,12 @@ setlocal makeprg=make
 else
 autocmd FileType c          setlocal makeprg=gcc\ '%'\ -o\ '%:r'.exe\ -std=gnu11\ -Wall
 autocmd FileType cs         setlocal makeprg=mcs\ '%'
-autocmd FileType html       setlocal makeprg=firefox\ file://$PWD/'%'
 autocmd FileType cpp        setlocal makeprg=g++\ '%'\ -o\ '%:r'.exe\ -std=c++14\ -Wall\ -lglut\ -lGLU\ -lGL\ -lXmu\ -lXext\ -lXi\ -lX11\ -lm\ -lgmpxx\ -lgmp\ -fopenmp
 autocmd FileType haskell    setlocal makeprg=ghc\ --make\ '%' shellpipe=2> expandtab
 autocmd FileType cabal      setlocal expandtab
 autocmd FileType python     setlocal makeprg=python\ '%'
 autocmd FileType javascript setlocal makeprg=node\ '%'
-autocmd Filetype html       setlocal ts=2 sts=2 sw=2
+autocmd Filetype html       setlocal ts=2 sts=2 sw=2 makeprg=firefox\ file://$PWD/'%'
 endif
 
 
@@ -90,13 +89,6 @@ nmap <C-H> <C-W>h
 
 set langmap=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕРТЪУИОПШЩАСДФГХЙКЛЗѝЦЖБНМ;`qwertyuiop[]asdfghjklzxcvbnm~QWERTYUIOP{}ASDFGHJKLZXCVBNM
 
-"let g:ycm_global_ycm_extra_conf = '/etc/vim/ycm_extra_conf.py'
-"set completeopt-=preview
-"----------------------------------------------
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
 highlight SyntasticErrorLine guibg=#2f0000
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
@@ -136,42 +128,7 @@ hi Normal ctermbg=none
 if ! has("gui_running")
     let g:loaded_airline = 1
 endif
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#left_sep = '▶'
-"let g:airline#extensions#tabline#left_alt_sep = '»'
-"let g:airline#extensions#tabline#right_sep = '◀'
-"let g:airline#extensions#tabline#right_alt_sep = '«'
-"
-"if !exists('g:airline_symbols')
-"let g:airline_symbols = {}
-"endif
-"
-"" unicode symbols
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-"let g:airline_symbols.whitespace = 'Ξ'
-"
-"" Statusbar
-"let g:airline_detect_modified=1
-"let g:airline_mode_map = {
-"	\ '__' : '-',
-"	\ 'n'  : 'N',
-"	\ 'i'  : 'I',
-"	\ 'R'  : 'R',
-"	\ 'c'  : 'C',
-"	\ 'v'  : 'V',
-"	\ 'V'  : 'V',
-"	\ '' : 'V',
-"	\ 's'  : 'S',
-"	\ 'S'  : 'S',
-"	\ '' : 'S',
-"	\ }
-"" theme and etc.
-"let g:airline_theme             = 'badwolf'
-"let g:airline_enable_branch     = 1
-"let g:airline_enable_syntastic  = 1
-"
+
 highlight Comment  cterm=bold ctermbg=NONE
 highlight Constant ctermbg=NONE 
 highlight Normal ctermbg=NONE 
@@ -179,10 +136,6 @@ highlight NonText ctermbg=NONE
 highlight Special ctermbg=NONE
 highlight Cursor ctermbg=NONE
 
-" color jellybeans
-" let g:jellybeans_background_color_256='NONE'
-let g:SuperTabDefaultCompletionType = "<c-Space>"
-let g:SuperTabContextDefaultCompletionType = "<c-Space>"
 let g:clang_complete_auto = 1
 let g:clang_auto_select = 1
 let g:clang_hl_errors = 1
