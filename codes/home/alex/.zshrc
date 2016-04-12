@@ -189,6 +189,6 @@ alias unmerge='emerge --unmerge'
 alias pbg='ping google.bg'
 alias p88='ping 8.8.8.8'
 alias tmux='tmux -2'
-alias vim='/usr/bin/my_vim'
+alias vim='nvim'
 
 [ -s "/home/alex/.dnx/dnvm/dnvm.sh" ] && . "/home/alex/.dnx/dnvm/dnvm.sh" # Load dnvm
