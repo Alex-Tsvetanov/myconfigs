@@ -1,8 +1,8 @@
 set autochdir
 
-set runtimepath+=/usr/local/bundle/badwolf
+"set runtimepath+=/usr/local/bundle/badwolf
 "set runtimepath+=/usr/local/bundle/nerdtree
-set runtimepath+=/usr/local/bundle/detectindent
+"set runtimepath+=/usr/local/bundle/detectindent
 "set runtimepath+=/usr/local/bundle/jshint2.vim
 
 "set runtimepath+=/usr/local/bundle/YouCompleteMe
@@ -49,7 +49,7 @@ autocmd Filetype html       setlocal ts=2 sts=2 sw=2 makeprg=firefox\ file://$PW
 endif
 
 
-autocmd BufReadPost * :DetectIndent
+"autocmd BufReadPost * :DetectIndent
 
 autocmd QuickFixCmdPost [^l]* nested cwindow
 
@@ -86,53 +86,38 @@ nmap <C-H> <C-W>h
 
 set langmap=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕРТЪУИОПШЩАСДФГХЙКЛЗѝЦЖБНМ;`qwertyuiop[]asdfghjklzxcvbnm~QWERTYUIOP{}ASDFGHJKLZXCVBNM
 
-if &term =~? 'xterm'
-	set t_ut=
-	set t_Co=256
-	let g:badwolf_darkgutter = 1
-	let g:badwolf_tabline = 2
-	colorscheme badwolf
-	set cursorline cursorcolumn
+let myterm = $TERM
+if myterm =~ 'xterm'
+	source /usr/share/vim/vimfiles/colors/badwolf.vim
+    set t_ut=
+    set t_Co=256
+    let g:badwolf_darkgutter = 1
+    let g:badwolf_tabline = 2
+    set cursorline cursorcolumn
 else
-	if &term =~? 'rxvt-256color'
-		set t_ut=
-		set t_Co=256-color
-		let g:badwolf_darkgutter = 1
-		let g:badwolf_tabline = 2
-		colorscheme badwolf
-		set cursorline cursorcolumn
-	else
-		colorscheme slate
-	endif
+	colorscheme slate
 endif
 
+source /usr/share/vim/vimfiles/syntax/nerdtree.vim
 noremap <silent> <F3> :NERDTreeToggle<CR>
 map <Tab> :tabnext<CR>
 map <BS> :tabprev<CR>
 map <C-h> :nohls<CR> 
 setfiletype cpp
-hi Normal ctermbg=none
 
 "let w:airline_disabled=1
 if ! has("gui_running")
     let g:loaded_airline = 1
 endif
 
-highlight Comment  cterm=bold ctermbg=NONE
-highlight Constant ctermbg=NONE 
-highlight Normal ctermbg=NONE 
-highlight NonText ctermbg=NONE
-highlight Special ctermbg=NONE
-highlight Cursor ctermbg=NONE
+"call pathogen#infect()
+"call pathogen#helptags()
 
-call pathogen#infect()
-call pathogen#helptags()
-
-let g:clang_complete_auto = 1
-let g:clang_auto_select = 1
-let g:clang_hl_errors = 1
-let g:clang_snippets = 1
-let g:acp_behaviorHtmlOmniLength=100000000
+"let g:clang_complete_auto = 1
+"let g:clang_auto_select = 1
+"let g:clang_hl_errors = 1
+"let g:clang_snippets = 1
+"let g:acp_behaviorHtmlOmniLength=100000000
 
 "highlight SyntasticErrorLine guibg=#2f0000
 "let g:syntastic_always_populate_loc_list = 1
@@ -142,3 +127,9 @@ let g:acp_behaviorHtmlOmniLength=100000000
 "let g:syntastic_c_compiler_options = '-std=gnu11 -Wall -lglut -lGLU -lGL -lXmu -lXext -lXi -lX11 -lm -lgmpxx -lgmp -fopenmp'
 "let g:syntastic_cpp_compiler_options = '-std=gnu++14 -Wall -lglut -lGLU -lGL -lXmu -lXext -lXi -lX11 -lm -lgmpxx -lgmp -fopenmp'
 
+highlight Comment  cterm=bold ctermbg=NONE
+highlight Constant ctermbg=NONE 
+highlight Normal ctermbg=NONE 
+highlight NonText ctermbg=NONE
+highlight Special ctermbg=NONE
+highlight Cursor ctermbg=NONE

@@ -19,14 +19,12 @@
 exec taffybar &
 exec audacious -e ~/GIT/have_repo/My-Music/music/shuffle/ -H &
 exec compton -i 0.5 --mark-wmwin-focused --mark-ovredir-focused
-bindsym $mod+Control++ exec compton-trans +10
-bindsym $mod+Control+- exec compton-trans -10
 exec nm-applet
 exec /home/alex/.fehbg
 exec setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,bg
 
 set $mod Mod4
-set $TERMINAL urxvt
+set $TERMINAL terminator
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -48,11 +46,13 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Shift+Return exec $TERMINAL 
-bindsym $mod+t exec transset-df 0.5
 # Lock Computer
 bindsym $mod+Shift+z exec /home/alex/.i3/lock
 # Print Screen
 bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+
+bindsym $mod+Control+equal exec compton-trans +10
+bindsym $mod+Control+minus exec compton-trans -10
 
 # kill focused window
 bindsym $mod+Shift+c kill

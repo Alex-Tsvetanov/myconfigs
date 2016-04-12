@@ -189,7 +189,6 @@ alias unmerge='emerge --unmerge'
 alias pbg='ping google.bg'
 alias p88='ping 8.8.8.8'
 alias tmux='tmux -2'
-alias vscode='/WindowsApp/VSCode-linux-x64/Code > /dev/null'
-alias xix-music-player='/home/alex/xix-media-player/XiXMusicPlayer/XiXMusicPlayer'
+alias vim='/usr/bin/my_vim'
 
 [ -s "/home/alex/.dnx/dnvm/dnvm.sh" ] && . "/home/alex/.dnx/dnvm/dnvm.sh" # Load dnvm

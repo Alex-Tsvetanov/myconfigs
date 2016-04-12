@@ -4,8 +4,8 @@ urxvt.depth:                      32
 urxvt.background:                 rgba:0000/0000/0000/0000
 urxvt.foreground:                 rgb:ffff/ffff/ffff/ffff
 urxvt.font:                       xft:monospace:size=12
-urxvt.keysym.Home:                \033[1~
-urxvt.keysym.End:                 \033[4~
+#urxvt.keysym.Home:                \033[1~
+#urxvt.keysym.End:                 \033[4~
 urxvt.cursorBlink:                true
 urxvt.scrollBar_right:            true
 urxvt.transparent:                true

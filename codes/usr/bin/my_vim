@@ -1,0 +1,8 @@
+#!/bin/sh
+my_command="`tty | grep tty`"
+if [[ "$my_command" = "" ]] ;
+then
+	nvim;
+else
+	vim;
+fi
