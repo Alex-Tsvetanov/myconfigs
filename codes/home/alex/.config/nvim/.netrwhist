@@ -1,3 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/alex/.config/tox'
+let g:netrw_dirhist_2='/home/alex/GIT/have_repo/Informatics/codes/Alex/templates/structures/Graph'
+let g:netrw_dirhist_3='/home/alex/GIT/have_repo/Informatics/codes/Alex/SMG/16.04.2016'
+let g:netrw_dirhist_4='/home/alex/GIT/have_repo/group/Expressions/C++/OOP/Base'
+let g:netrw_dirhist_5='/home/alex/GIT/have_repo/group/Expressions/C++'
+let g:netrw_dirhist_6='/etc/httpd/conf'
+let g:netrw_dirhist_7='/home/alex/GIT/have_repo/group/Expressions/C++/OOP'
+let g:netrw_dirhist_8='/home/alex/GIT/have_repo/group/Expressions/C++/OOP/Facade'
+let g:netrw_dirhist_9='/home/alex/GIT/have_repo/group/Expressions/C++/OOP/Base'

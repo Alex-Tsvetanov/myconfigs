@@ -109,15 +109,20 @@ setfiletype cpp
 if ! has("gui_running")
     let g:loaded_airline = 1
 endif
+source /usr/share/vim/vimfiles/autoload/pathogen.vim
+"source /usr/share/vim/vimfiles/syntax_checkers/c/clang_check.vim
+"source /usr/share/vim/vimfiles/syntax_checkers/c/clang_tidy.vim
+"source /usr/share/vim/vimfiles/syntax_checkers/cpp/clang_check.vim
+"source /usr/share/vim/vimfiles/syntax_checkers/cpp/clang_tidy.vim
 
-"call pathogen#infect()
-"call pathogen#helptags()
+call pathogen#infect()
+call pathogen#helptags()
 
-"let g:clang_complete_auto = 1
-"let g:clang_auto_select = 1
-"let g:clang_hl_errors = 1
-"let g:clang_snippets = 1
-"let g:acp_behaviorHtmlOmniLength=100000000
+let g:clang_complete_auto = 1
+let g:clang_auto_select = 1
+let g:clang_hl_errors = 1
+let g:clang_snippets = 1
+let g:acp_behaviorHtmlOmniLength=100000000
 
 "highlight SyntasticErrorLine guibg=#2f0000
 "let g:syntastic_always_populate_loc_list = 1
