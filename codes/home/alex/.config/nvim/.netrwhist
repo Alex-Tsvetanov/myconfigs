@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/home/alex/GIT/have_repo/Expressions/C#'
+let g:netrw_dirhist_2='/home/alex/GIT/have_repo/group/ATDC-Sort/C'
+let g:netrw_dirhist_3='/home/alex/GIT/have_repo/group/ATDC-Sort'
+let g:netrw_dirhist_4='/home/alex/GIT/have_repo/group/ATDC-Sort/C'
