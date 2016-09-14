@@ -1,0 +1,394 @@
+# This file has been 
+# auto-generated 
+# by i3-config-wizard(1).
+# It will not be overwritten, so edit it as you like.
+#
+# Should you change your keyboard layout some time, delete
+# this file and re-run i3-config-wizard(1).
+#
+
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# Startup programs
+#exec bash /home/alex/Desktop/charging.sh
+#exec killall bash
+exec volnoti
+exec qtox
+#exec xscreensaver -no-splash &
+#exec audacious -e ~/Music/old/ -H & # ~/GIT/have_repo/My-Music/music/shuffle/ -H &
+#exec compton --config /home/alex/.compton.conf
+exec nm-applet
+exec /home/alex/.fehbg
+exec setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,bg
+#exec conky -c /home/alex/.conky_dzen | dzen2 -x '2080' -w '1940' -h '30' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0' -dock
+#exec sbxkb &
+#exec cbatteryicon &
+exec trayer --edge top --align right --widthtype pixel --width 80 --heighttype request --SetDockType true --SetPartialStrut true --transparent true --alpha 127 --tint 0xFF000000 --monitor primary --iconspacing 2 &
+exec gromit-mpx --key Control_R &
+
+
+set $mod Mod4
+set $TERMINAL i3-sensible-terminal
+set $prompt dmenu_run -nb "#FF5555" -nf "#000000" -sf "#000000" -fn "Monospace-14" -p /bin/zsh
+
+# default workspace layout
+workspace_layout tabbed
+
+# Assume you are on workspace "1: www" and switch to "2: IM" using mod+2 
+# because somebody sent you a message. You don’t need to remember 
+# where you came from now, you can just press $mod+2 again to switch back to "1: www".
+workspace_auto_back_and_forth yes
+
+# window (client) colors
+# class                 border  backgr. text    indicator
+client.focused          #0088CC #0088CC #ffffff #dddddd
+client.focused_inactive #333333 #333333 #888888 #292d2e
+client.unfocused        #333333 #333333 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+#font pango:arial 8
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+font Monospace 14
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
+
+# turn on mouse following
+focus_follows_mouse yes
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Shift+Return exec $TERMINAL 
+# Lock Computer
+bindsym $mod+Shift+z exec /home/alex/.i3/lock
+# Print Screen
+bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+
+#Transperancy
+bindsym $mod+Control+equal exec transset-df -a --inc 0.1
+bindsym $mod+Control+minus exec transset-df -a --dec 0.1
+
+# kill focused window
+bindsym $mod+Shift+c kill
+
+# start dmenu (a program launcher)
+bindsym $mod+Shift+p exec $prompt
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+set $workspace1 1;
+set $workspace2 2;
+set $workspace3 5;
+set $workspace4 14;
+set $workspace5 42;
+set $workspace6 132;
+set $workspace7 429;
+set $workspace8 1430;
+set $workspace9 4862;
+set $workspace10 Music;
+
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+# reload the configuration file
+bindsym $mod+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+mode "mouse" {
+    # set your three speeds here
+
+    set $slow 1
+    set $quick 10
+    set $fast 50
+
+    # Mouse movement (slow/fine-tuned) -- vim keybindings
+
+    bindsym h exec xdotool mousemove_relative -- -$slow 0
+    bindsym j exec xdotool mousemove_relative 0 $slow
+    bindsym k exec xdotool mousemove_relative -- 0 -$slow
+    bindsym l exec xdotool mousemove_relative $slow 0
+
+    # Mouse movement (slow/fine-tuned) -- arrow keys
+
+    bindsym Left exec xdotool mousemove_relative -- -$slow 0
+    bindsym Down exec xdotool mousemove_relative 0 $slow
+    bindsym Up exec xdotool mousemove_relative -- 0 -$slow
+    bindsym Right exec xdotool mousemove_relative $slow 0
+
+    # Mouse movement (quicker) -- vim keybindings
+
+    bindsym Shift+h exec xdotool mousemove_relative -- -$quick 0
+    bindsym Shift+j exec xdotool mousemove_relative 0 $quick
+    bindsym Shift+k exec xdotool mousemove_relative -- 0 -$quick
+    bindsym Shift+l exec xdotool mousemove_relative $quick 0
+
+    # Mouse movement (quicker) -- arrow keys
+
+    bindsym Shift+Left exec xdotool mousemove_relative -- -$quick 0
+    bindsym Shift+Down exec xdotool mousemove_relative 0 $quick
+    bindsym Shift+Up exec xdotool mousemove_relative -- 0 -$quick
+    bindsym Shift+Right exec xdotool mousemove_relative $quick 0
+
+    # Mouse movement (fast) -- vim keybindings
+
+    bindsym Shift+$mod2+h exec xdotool mousemove_relative -- -$fast 0
+    bindsym Shift+$mod2+j exec xdotool mousemove_relative 0 $fast
+    bindsym Shift+$mod2+k exec xdotool mousemove_relative -- 0 -$fast
+    bindsym Shift+$mod2+l exec xdotool mousemove_relative $fast 0
+
+    # Mouse movement (fast) -- arrow keys
+
+    bindsym Shift+$mod2+Left exec xdotool mousemove_relative -- -$fast 0
+    bindsym Shift+$mod2+Down exec xdotool mousemove_relative 0 $fast
+    bindsym Shift+$mod2+Up exec xdotool mousemove_relative -- 0 -$fast
+    bindsym Shift+$mod2+Right exec xdotool mousemove_relative $fast 0
+
+    # Mouse movement (special down-right)
+
+    bindsym m exec xdotool mousemove_relative 10 10
+
+    # Left Click
+    bindsym f exec xdotool click 1
+
+    # Middle Click
+    bindsym d exec xdotool click 2
+
+    # Right Click
+    bindsym s exec xdotool click 3
+
+    # Left Click-and-drag
+    bindsym Shift+f exec xdotool mousedown 1
+
+    # Middle Click-and-drag 
+    bindsym Shift+d exec xdotool mousedown 2
+
+    # Right Click-and-drag
+    bindsym Shift+s exec xdotool mousedown 3
+
+    # Left Drag release
+    bindsym $mod2+f exec xdotool mouseup 1
+
+    # Middle Drag release
+    bindsym $mod2+d exec xdotool mouseup 2
+
+    # Right Drag release
+    bindsym $mod2+s exec xdotool mouseup 3
+
+
+    # return to normal keybindings -- IMPORTANT!!
+
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+m mode "mouse"
+
+
+# this serves as the exhaustive collection of things one can do with workspaces
+mode "workspace" {
+    bindsym Left   workspace prev_on_output
+    bindsym Right  workspace next_on_ouput
+    bindsym Down   workspace prev
+    bindsym Up     workspace next
+
+    bindsym Tab    layout toggle all
+
+    bindsym r      exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+
+    bindsym ','    move workspace to output left
+    bindsym '.'    move workspace to output right
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+w mode "workspace"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+#	i3bar_command  /usr/bin/i3bar-icons
+   #status_command i3status #/home/alex/.i3/my_i3status
+	status_command i3blocks -c /home/alex/.dotfiles/i3/.config/i3/i3blocks.conf
+    tray_output primary 
+    position bottom
+	mode dock
+	workspace_buttons yes
+	strip_workspace_numbers yes
+    colors {
+      separator          #666666
+        background         #222222
+        statusline         #dddddd
+        focused_workspace  #0088CC #0088CC #ffffff
+        active_workspace   #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+    }
+}
+
+bindsym $mod+Control+Up exec pamixer --allow-boost -i 5 && vol n
+bindsym $mod+Control+Down exec pamixer -d 5 && vol n
+bindsym $mod+Control+m exec pamixer -t && vol n
+bindsym XF86AudioRaiseVolume exec pamixer --allow-boost -i 5 && vol n
+bindsym XF86AudioLowerVolume exec pamixer -d 5 && vol n
+bindsym XF86AudioMute exec pamixer -t && vol n
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 
+bindsym $mod+Control+Left exec playerctl previous
+bindsym $mod+Control+Right exec playerctl next
+bindsym $mod+Control+s exec playerctl stop
+bindsym $mod+Control+a exec playerctl play-pause
+
+for_window [window_role="pop-up"] floating enable
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Mod1+z move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+z scratchpad show
+
+# Hides vertical and horizontal borders when there's only one window.
+# hide_edge_borders both
+#hide_edge_borders none
+
+# window border size
+#new_window pixel 1
+
+
+popup_during_fullscreen leave_fullscreen
+show_marks yes
+
+# specific window settings
+for_window [class="Nemo" instance="^desktop_window$"] floating disable
+
+# chrome extension popups
+for_window [instance="^crx.*$" window_role="pop-up"]  floating enable
+for_window [instance="^crx.*$" window_role="pop-up"]  sticky   enable
+
+for_window [class="^Emacs$"]               title_format "Emacs .......... %title"
+for_window [class="^Firefox$"]             title_format "Firefox ........ %title"
+for_window [class="^Gnome-terminal$"]      title_format "Terminal ....... %title"
+for_window [class="^Google-chrome$"]       title_format "Chrome ......... %title"
+for_window [class="^Gvim$"]                title_format "Vim ............ %title"
+for_window [class="^Nemo$"]                title_format "Nemo ........... %title"
+for_window [class="^Terminator$"]          title_format "Terminal ....... %title"
+for_window [class="^Vlc$"]                 title_format "VLC ............ %title"
+for_window [class="^chromium-browser$"]    title_format "Chromium ....... %title"
+for_window [class="^google-chrome$"]       title_format "Chrome ......... %title"
+for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
+for_window [class="^RStudio$"]             title_format "RStudio ........ %title"
+for_window [class="^Qbittorrent$"]         title_format "Torrents ....... %title"

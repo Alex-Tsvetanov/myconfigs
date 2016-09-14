@@ -1,0 +1,14 @@
+exec volnoti
+exec qtox
+exec nm-applet
+exec /home/alex/.fehbg
+exec setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,bg
+exec trayer --edge top --align right --widthtype pixel --width 80 --heighttype request --SetDockType true --SetPartialStrut true --transparent true --alpha 127 --tint 0xFF000000 --monitor primary --iconspacing 2 &
+exec gromit-mpx --key Control_R &
+
+font Monospace 14
+
+set $mod Mod4
+set $TERMINAL i3-sensible-terminal
+set $prompt dmenu_run -nb "#FF5555" -nf "#000000" -sf "#000000" -fn "Monospace-14" -p /bin/zsh
+
