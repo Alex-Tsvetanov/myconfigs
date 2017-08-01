@@ -189,11 +189,11 @@ alias unmerge='emerge --unmerge'
 alias pbg='ping google.bg'
 alias p88='ping 8.8.8.8'
 alias tmux='tmux -2'
-alias vim='nvim'
+#alias vim='nvim'
 
 bindkey -v
 
-bindkey '\eOH'  beginning-of-line
-bindkey '\eOF'  end-of-line
+bindkey '\e[7~'  beginning-of-line
+bindkey '\e[8~'  end-of-line
 
 [ -s "/home/alex/.dnx/dnvm/dnvm.sh" ] && . "/home/alex/.dnx/dnvm/dnvm.sh" # Load dnvm

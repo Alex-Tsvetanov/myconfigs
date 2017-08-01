@@ -1,3 +1,0 @@
-#!/bin/bash
-cd /home/alex/.i3/build
-(g++ -E i3.cpp 2> /dev/null) > ../config

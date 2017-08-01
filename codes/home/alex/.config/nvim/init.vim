@@ -1,4 +1,14 @@
 set autochdir
+"Plugin 'digitaltoad/vim-jade'
+Bundle "https://github.com/digitaltoad/vim-jade.git"
+
+"source /usr/share/vim/vimfiles/ftdetect/jade.vim
+"source /usr/share/vim/vimfiles/indent/jade.vim
+"source /usr/share/vim/vimfiles/syntax/jade.vim
+"source /usr/share/vim/vimfiles/ftdetect/pug.vim
+"source /usr/share/vim/vimfiles/indent/pug.vim
+"source /usr/share/vim/vimfiles/syntax/pug.vim
+
 
 "set runtimepath+=/usr/local/bundle/badwolf
 "set runtimepath+=/usr/local/bundle/nerdtree
@@ -40,7 +50,7 @@ setlocal makeprg=make
 else
 autocmd FileType c          setlocal makeprg=gcc\ '%'\ -o\ '%:r'.exe\ -std=gnu11\ -Wall
 autocmd FileType cs         setlocal makeprg=mcs\ '%'
-autocmd FileType cpp        setlocal makeprg=g++\ '%'\ -o\ '%:r'.exe\ -std=c++14\ -Wall\ -lglut\ -lGLU\ -lGL\ -lXmu\ -lXext\ -lXi\ -lX11\ -lm\ -lgmpxx\ -lgmp\ -fopenmp
+autocmd FileType cpp        setlocal makeprg=g++\ '%'\ -o\ '%:r'.exe\ -std=c++14\ -Wall\ `pkg-config\ gtkmm-3.0\ --cflags`\ -lglut\ -lGLU\ -lGL\ -lXmu\ -lXext\ -lXi\ -lX11\ -lm\ -lgmpxx\ -lgmp\ -fopenmp
 autocmd FileType haskell    setlocal makeprg=ghc\ --make\ '%' shellpipe=2> expandtab
 autocmd FileType cabal      setlocal expandtab
 autocmd FileType python     setlocal makeprg=python\ '%'
@@ -103,7 +113,6 @@ noremap <silent> <F3> :NERDTreeToggle<CR>
 map <Tab> :tabnext<CR>
 map <BS> :tabprev<CR>
 map <C-h> :nohls<CR> 
-setfiletype cpp
 
 "let w:airline_disabled=1
 if ! has("gui_running")
@@ -138,3 +147,15 @@ highlight Normal ctermbg=NONE
 highlight NonText ctermbg=NONE
 highlight Special ctermbg=NONE
 highlight Cursor ctermbg=NONE
+
+"if &filetype =~ 'jade'
+"    setfiletype pug
+"    source /usr/share/vim/vimfiles/indent/pug.vim
+"    source /usr/share/vim/vimfiles/syntax/pug.vim
+"endif
+"
+"if &filetype =~ 'pug'
+"    setfiletype pug
+"    source /usr/share/vim/vimfiles/indent/pug.vim
+"    source /usr/share/vim/vimfiles/syntax/pug.vim
+"endif

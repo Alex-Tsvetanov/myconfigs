@@ -1,8 +1,16 @@
 set autochdir
 
-set runtimepath+=/usr/local/bundle/badwolf
+"source /usr/share/vim/vimfiles/ftdetect/jade.vim
+"source /usr/share/vim/vimfiles/indent/jade.vim
+"source /usr/share/vim/vimfiles/syntax/jade.vim
+"source /usr/share/vim/vimfiles/ftdetect/pug.vim
+"source /usr/share/vim/vimfiles/indent/pug.vim
+"source /usr/share/vim/vimfiles/syntax/pug.vim
+
+
+"set runtimepath+=/usr/local/bundle/badwolf
 "set runtimepath+=/usr/local/bundle/nerdtree
-set runtimepath+=/usr/local/bundle/detectindent
+"set runtimepath+=/usr/local/bundle/detectindent
 "set runtimepath+=/usr/local/bundle/jshint2.vim
 
 "set runtimepath+=/usr/local/bundle/YouCompleteMe
@@ -40,7 +48,7 @@ setlocal makeprg=make
 else
 autocmd FileType c          setlocal makeprg=gcc\ '%'\ -o\ '%:r'.exe\ -std=gnu11\ -Wall
 autocmd FileType cs         setlocal makeprg=mcs\ '%'
-autocmd FileType cpp        setlocal makeprg=g++\ '%'\ -o\ '%:r'.exe\ -std=c++14\ -Wall\ -lglut\ -lGLU\ -lGL\ -lXmu\ -lXext\ -lXi\ -lX11\ -lm\ -lgmpxx\ -lgmp\ -fopenmp
+autocmd FileType cpp        setlocal makeprg=g++\ '%'\ -o\ '%:r'.exe\ -std=c++14\ -Wall\ `pkg-config\ gtkmm-3.0\ --cflags`\ -lglut\ -lGLU\ -lGL\ -lXmu\ -lXext\ -lXi\ -lX11\ -lm\ -lgmpxx\ -lgmp\ -fopenmp
 autocmd FileType haskell    setlocal makeprg=ghc\ --make\ '%' shellpipe=2> expandtab
 autocmd FileType cabal      setlocal expandtab
 autocmd FileType python     setlocal makeprg=python\ '%'
@@ -49,7 +57,7 @@ autocmd Filetype html       setlocal ts=2 sts=2 sw=2 makeprg=firefox\ file://$PW
 endif
 
 
-autocmd BufReadPost * :DetectIndent
+"autocmd BufReadPost * :DetectIndent
 
 autocmd QuickFixCmdPost [^l]* nested cwindow
 
@@ -86,44 +94,33 @@ nmap <C-H> <C-W>h
 
 set langmap=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕРТЪУИОПШЩАСДФГХЙКЛЗѝЦЖБНМ;`qwertyuiop[]asdfghjklzxcvbnm~QWERTYUIOP{}ASDFGHJKLZXCVBNM
 
-if &term =~? 'xterm'
-	set t_ut=
-	set t_Co=256
-	let g:badwolf_darkgutter = 1
-	let g:badwolf_tabline = 2
-	colorscheme badwolf
-	set cursorline cursorcolumn
+let myterm = $TERM
+if myterm =~ 'xterm'
+	source /usr/share/vim/vimfiles/colors/badwolf.vim
+    set t_ut=
+    set t_Co=256
+    let g:badwolf_darkgutter = 1
+    let g:badwolf_tabline = 2
+    set cursorline cursorcolumn
 else
-	if &term =~? 'rxvt-256color'
-		set t_ut=
-		set t_Co=256-color
-		let g:badwolf_darkgutter = 1
-		let g:badwolf_tabline = 2
-		colorscheme badwolf
-		set cursorline cursorcolumn
-	else
-		colorscheme slate
-	endif
+	colorscheme slate
 endif
 
+source /usr/share/vim/vimfiles/syntax/nerdtree.vim
 noremap <silent> <F3> :NERDTreeToggle<CR>
 map <Tab> :tabnext<CR>
 map <BS> :tabprev<CR>
 map <C-h> :nohls<CR> 
-setfiletype cpp
-hi Normal ctermbg=none
 
 "let w:airline_disabled=1
 if ! has("gui_running")
     let g:loaded_airline = 1
 endif
-
-highlight Comment  cterm=bold ctermbg=NONE
-highlight Constant ctermbg=NONE 
-highlight Normal ctermbg=NONE 
-highlight NonText ctermbg=NONE
-highlight Special ctermbg=NONE
-highlight Cursor ctermbg=NONE
+source /usr/share/vim/vimfiles/autoload/pathogen.vim
+"source /usr/share/vim/vimfiles/syntax_checkers/c/clang_check.vim
+"source /usr/share/vim/vimfiles/syntax_checkers/c/clang_tidy.vim
+"source /usr/share/vim/vimfiles/syntax_checkers/cpp/clang_check.vim
+"source /usr/share/vim/vimfiles/syntax_checkers/cpp/clang_tidy.vim
 
 call pathogen#infect()
 call pathogen#helptags()
@@ -142,3 +139,21 @@ let g:acp_behaviorHtmlOmniLength=100000000
 "let g:syntastic_c_compiler_options = '-std=gnu11 -Wall -lglut -lGLU -lGL -lXmu -lXext -lXi -lX11 -lm -lgmpxx -lgmp -fopenmp'
 "let g:syntastic_cpp_compiler_options = '-std=gnu++14 -Wall -lglut -lGLU -lGL -lXmu -lXext -lXi -lX11 -lm -lgmpxx -lgmp -fopenmp'
 
+highlight Comment  cterm=bold ctermbg=NONE
+highlight Constant ctermbg=NONE 
+highlight Normal ctermbg=NONE 
+highlight NonText ctermbg=NONE
+highlight Special ctermbg=NONE
+highlight Cursor ctermbg=NONE
+
+"if &filetype =~ 'jade'
+"    setfiletype pug
+"    source /usr/share/vim/vimfiles/indent/pug.vim
+"    source /usr/share/vim/vimfiles/syntax/pug.vim
+"endif
+"
+"if &filetype =~ 'pug'
+"    setfiletype pug
+"    source /usr/share/vim/vimfiles/indent/pug.vim
+"    source /usr/share/vim/vimfiles/syntax/pug.vim
+"endif
