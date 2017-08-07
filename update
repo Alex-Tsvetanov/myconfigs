@@ -4,7 +4,7 @@ echo "# Myconfigs" > README.md
 for i in {".i3",".vimrc",".Xdefaults",".xmobarrc",".Xmodmap",".zshrc",".config/nvim"};
 do 
 	rm -rf codes/home/alex/$i;
-	cp -rf {~,codes/home/alex}/$i;
+	cp -rf {/mnt/home/alex,codes/home/alex}/$i;
 done
 git init
 git add .
