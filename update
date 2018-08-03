@@ -1,7 +1,7 @@
 #!/bin/bash
 git pull
 echo "# Myconfigs" > README.md
-for i in {".i3",".vimrc",".X\*",".zshrc",".config/nvim"};
+for i in {".i3",".vimrc",".Xdefaults",".zshrc",".config/nvim"};
 do 
 	rm -rf codes/home/alex/$i;
 	cp -rf {/home/alex,codes/home/alex}/$i;
