@@ -2,6 +2,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 exec setxkbmap us,bg -option "grp:alt_shift_toggle"
+exec 'feh' '--bg-fill' '/home/alex/.i3/background.jpg' '--no-fehbg'
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
@@ -16,6 +17,20 @@ set $mod Mod4
 # Hide borders
 hide_edge_borders none
 
+# volume
+bindsym $mod+Control+Up exec pamixer --allow-boost -i 5
+bindsym $mod+Control+Down exec pamixer -d 5
+bindsym XF86AudioRaiseVolume exec pamixer --allow-boost -i 5
+bindsym XF86AudioLowerVolume exec pamixer -d 5
+bindsym XF86AudioMute exec pamixer -t
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym $mod+Control+Left exec playerctl previous
+bindsym $mod+Control+Right exec playerctl next
+bindsym $mod+Control+s exec playerctl stop
+bindsym $mod+Control+a exec playerctl play-pause
+
+
 # change borders
 bindsym $mod+u border none
 bindsym $mod+y border pixel 1
@@ -29,7 +44,7 @@ font xft:Monospace 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec terminal -e 'zsh'
+bindsym $mod+Shift+Return exec i3-sensible-terminal -e 'zsh'
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -46,7 +61,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ################################################################################################
 
 exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+bindsym $mod+Ctrl+m exec i3-sensible-terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
@@ -58,12 +73,12 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+bindsym $mod+Ctrl+b exec i3-sensible-terminal -e 'bmenu'
 bindsym $mod+F2 exec palemoon
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+F5 exec i3-sensible-terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -137,8 +152,8 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 #navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
+#bindsym $mod+Ctrl+Right workspace next
+#bindsym $mod+Ctrl+Left workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -300,7 +315,7 @@ bar {
 
 	bindsym button4 nop
 	bindsym button5 nop
-	font xft:Monospace 10.5
+	font xft:Monospace 15
 	strip_workspace_numbers yes
 
 	colors {

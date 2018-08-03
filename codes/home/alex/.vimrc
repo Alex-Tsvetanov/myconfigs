@@ -33,7 +33,7 @@ set smartcase
 set showfulltag
 set scrolloff=5 sidescrolloff=5
 set hidden
-set number relativenumber
+set number
 set smartindent autoindent smarttab cindent
 set autoread
 set ts=4 sw=4 sts=4
@@ -95,7 +95,7 @@ nmap <C-H> <C-W>h
 set langmap=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕРТЪУИОПШЩАСДФГХЙКЛЗѝЦЖБНМ;`qwertyuiop[]asdfghjklzxcvbnm~QWERTYUIOP{}ASDFGHJKLZXCVBNM
 
 let myterm = $TERM
-if myterm =~ 'xterm'
+if myterm =~ 'rxvt-256color'
 	source /usr/share/vim/vimfiles/colors/badwolf.vim
     set t_ut=
     set t_Co=256
